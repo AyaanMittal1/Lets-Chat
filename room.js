@@ -23,7 +23,7 @@ function add_room(){
           purpose:"adding room"
     });
     localStorage.setItem("room_name",room);
-    window.location="kwitter_page.html";
+    window.location="chat.html";
 }
 function log_out(){
     window.location="index.html";
