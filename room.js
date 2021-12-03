@@ -8,6 +8,7 @@ const fire_base = {
     appId: "1:738250332581:web:5e3544d3bd13282eaeb04c"
   };
   firebase.initializeApp(fire_base);
+//ADD YOUR FIREBASE LINKS HERE
 users_name=localStorage.getItem("user");
 document.getElementById("user_name").innerHTML="Welcome "+users_name+"!";
 function getData() {
@@ -15,6 +16,11 @@ function getData() {
           document.getElementById("output").innerHTML = "";snapshot.forEach(function(childSnapshot) {
                 childKey  = childSnapshot.key;
      Room_names = childKey;
+    //Start code
+    console.log(Room_names);
+    row="<div class='room_name' id="+Room_names+" onclick='redirect_to_room_name(this.id)'>"+Room_names+"</div><hr>";
+    document.getElementById("output").innerHTML+=row;
+    //End code
     });});}
 getData();
 function add_room(){
@@ -24,6 +30,10 @@ function add_room(){
     });
     localStorage.setItem("room_name",room);
     window.location="chat.html";
+}
+function redirect_to_room_name(room1){
+    window.location="chat.html";
+    localStorage.setItem("room_name",room1);
 }
 function log_out(){
     window.location="index.html";
